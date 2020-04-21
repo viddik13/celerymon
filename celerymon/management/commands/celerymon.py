@@ -1,4 +1,4 @@
-from __future__ import absolute_import
+
 
 from djcelery.app import app
 from djcelery.management.base import CeleryCommand

@@ -1,4 +1,4 @@
-from __future__ import absolute_import
+
 
 from .consumer import EventConsumer
 from .web import WebServerThread

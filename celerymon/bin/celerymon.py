@@ -61,7 +61,7 @@ class MonitorCommand(Command):
     def run(self, loglevel='ERROR', logfile=None, http_port=8989,
             http_address='', app=None, detach=False, pidfile=PID_FILE,
             uid=None, gid=None, umask=None, working_directory=None, **kwargs):
-        print('celerymon %s is starting.' % self.version)
+        print(('celerymon %s is starting.' % self.version))
         app = self.app
         workdir = working_directory
 
@@ -71,11 +71,11 @@ class MonitorCommand(Command):
 
         # Dump configuration to screen so we have some basic information
         # when users sends e-mails.
-        print(STARTUP_INFO_FMT % {
+        print((STARTUP_INFO_FMT % {
                 'http_port': http_port,
                 'http_address': http_address or 'localhost',
                 'conninfo': app.broker_connection().as_uri(),
-        })
+        }))
 
         print('celerymon has started.')
         set_process_title('celerymon', info=strargv(sys.argv))
@@ -91,7 +91,7 @@ class MonitorCommand(Command):
 
             try:
                 monitor.start()
-            except Exception, exc:
+            except Exception as exc:
                 logger.error('celerymon raised exception %r',
                              exc, exc_info=True)
             except KeyboardInterrupt:
